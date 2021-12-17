@@ -80,6 +80,7 @@ public class StandardEnvironment extends AbstractEnvironment {
 
 
 	/**
+	 * 该方法会自定执行，因为在父类的构造器中调用了该方法
 	 * Customize the set of property sources with those appropriate for any standard
 	 * Java environment:
 	 * <ul>
