@@ -168,6 +168,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 
 
 	static {
+		// 优先加载上下文关闭事件，来防止在应用程序关闭的时候产生奇怪的类加载问题 (for WebLogic)
 		// Eagerly load the ContextClosedEvent class to avoid weird classloader issues
 		// on application shutdown in WebLogic 8.1. (Reported by Dustin Woods.)
 		ContextClosedEvent.class.getName();
@@ -934,9 +935,11 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 		beanFactory.setTempClassLoader(null);
 
 		// Allow for caching all bean definition metadata, not expecting further changes.
+		// 冻结所有的 bean 定义，说明注册的 bean 定义将不被修改或任何进一步处理
 		beanFactory.freezeConfiguration();
 
 		// Instantiate all remaining (non-lazy-init) singletons.
+		// 初始化剩下的单例对象
 		beanFactory.preInstantiateSingletons();
 	}
 

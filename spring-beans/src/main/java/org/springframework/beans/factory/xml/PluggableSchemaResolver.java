@@ -176,8 +176,8 @@ public class PluggableSchemaResolver implements EntityResolver {
 
 	@Override
 	public String toString() {
-//		return "EntityResolver using schema mappings " + getSchemaMappings();
-		return "EntityResolver using schema mappings " + "改动后 schemaMappings 属性不会被赋值";
+		return "EntityResolver using schema mappings " + getSchemaMappings();
+//		return "EntityResolver using schema mappings " + "改动后 schemaMappings 属性不会被赋值";
 	}
 
 }
