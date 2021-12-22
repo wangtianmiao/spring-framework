@@ -1,5 +1,6 @@
 package com.karson;
 
+import com.karson.selftag.User;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -18,6 +19,8 @@ public class Test {
 //		ApplicationContext ac = new MyClassPathXmlApplicationContext("spring-${username}.xml");
 
 		ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
+		User user = (User) ac.getBean("karson");
+		System.out.println(user.getUserName());
 //		ApplicationContext ac = new ClassPathXmlApplicationContext("spring-${username}.xml");
 //		Person bean = ac.getBean(Person.class);
 //		System.out.println(bean);
