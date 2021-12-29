@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="customer" class="com.karson.selfeditor.Customer">
+		<property name="name" value="karson"/>
+		<property name="address" value="辽宁省_沈阳市_铁西区"/>
+	</bean>
+
+	<bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+		<property name="propertyEditorRegistrars">
+			<list>
+				<bean class="com.karson.selfeditor.AddressPropertyEditorRegistrar"/>
+			</list>
+		</property>
+	</bean>
+</beans>
