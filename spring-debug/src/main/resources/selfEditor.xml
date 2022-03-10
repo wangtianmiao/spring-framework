@@ -8,11 +8,21 @@
 		<property name="address" value="辽宁省_沈阳市_铁西区"/>
 	</bean>
 
+<!--	<bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">-->
+<!--		<property name="propertyEditorRegistrars">-->
+<!--			<list>-->
+<!--				<bean class="com.karson.selfeditor.AddressPropertyEditorRegistrar"/>-->
+<!--			</list>-->
+<!--		</property>-->
+<!--	</bean>-->
+
 	<bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
-		<property name="propertyEditorRegistrars">
-			<list>
-				<bean class="com.karson.selfeditor.AddressPropertyEditorRegistrar"/>
-			</list>
+		<property name="customEditors">
+			<map>
+				<entry key="com.karson.selfeditor.Address">
+					<value>com.karson.selfeditor.AddressPropertyEditor</value>
+				</entry>
+			</map>
 		</property>
 	</bean>
 </beans>

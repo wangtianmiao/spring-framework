@@ -220,11 +220,11 @@ public abstract class AbstractRefreshableApplicationContext extends AbstractAppl
 	 * @see DefaultListableBeanFactory#setAllowEagerClassLoading
 	 */
 	protected void customizeBeanFactory(DefaultListableBeanFactory beanFactory) {
-		// 如果 allowBeanDefinitionOverriding 不为空，修改 beanFactory 中对应的属性
+		// 是否允许 BeanDefinition 重复定义
 		if (this.allowBeanDefinitionOverriding != null) {
 			beanFactory.setAllowBeanDefinitionOverriding(this.allowBeanDefinitionOverriding);
 		}
-		// 如果 allowCircularReferences 不为空，修改 beanFactory 中对应的属性
+		// 是否解析循环引用
 		if (this.allowCircularReferences != null) {
 			beanFactory.setAllowCircularReferences(this.allowCircularReferences);
 		}
